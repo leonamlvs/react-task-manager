@@ -5,21 +5,21 @@ import Tasks from './components/Tasks'
 function App() {
   const [tasks, setTasks] = useState([
     {
-      id: 1,
+      id: '1',
       title: 'Estudar programação',
       description:
         'Estudar programação para me tornar um desenvolvedor full stack.',
       isCompleted: false
     },
     {
-      id: 2,
+      id: '2',
       title: 'Fazer exercícios físicos',
       description:
         'Fazer exercícios físicos para manter a saúde e o bem-estar.',
       isCompleted: false
     },
     {
-      id: 3,
+      id: '3',
       title: 'Estudar matemática',
       description: 'Estudar matemática para aprimorar as habilidades lógicas.',
       isCompleted: false
@@ -45,7 +45,7 @@ function App() {
 
   function onTaskAdd(title, description) {
     const newTask = {
-      id: Date.now(),
+      id: crypto.randomUUID(),
       title,
       description,
       isCompleted: false
