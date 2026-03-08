@@ -26,17 +26,20 @@ function App() {
   function onTaskClick(taskId) {
     const newTasks = tasks.map((task) => {
 
-      // Update the task with the given id, toggling its isCompleted property
       if (task.id === taskId) {
         return { ...task, isCompleted: !task.isCompleted };
       }
 
-      // For all other tasks, return them unchanged
       return task;
     });
 
     setTasks(newTasks);
 
+  }
+
+  function onTaskDelete(taskId) {
+    const newTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(newTasks);
   }
 
   return (
@@ -45,7 +48,7 @@ function App() {
         <h1 className="text-3xl text-slate-100 font-bold text-center">
           Gerenciador de Tarefas
         </h1>
-        <Tasks tasks={tasks} onTaskClick={onTaskClick} />
+        <Tasks tasks={tasks} onTaskClick={onTaskClick} onTaskDelete={onTaskDelete} />
       </div>
     </div>
   )
