@@ -1,7 +1,10 @@
 {
-  "name": "curso-de-react",
+  "name": "react-task-manager",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A simple task management application built with React, Tailwind CSS, and React Router.",
+  "author": "Leonam Alves",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",

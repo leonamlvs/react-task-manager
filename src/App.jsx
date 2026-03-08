@@ -42,7 +42,7 @@ function App() {
   return (
     <div className="flex h-screen w-screen justify-center bg-slate-500 p-6">
       <div className="w-[500px] space-y-4">
-        <Title>Gerenciador de Tarefas</Title>
+        <Title>My Tasks</Title>
         <AddTask onTaskAdd={onTaskAdd} />
         <Tasks
           tasks={tasks}
