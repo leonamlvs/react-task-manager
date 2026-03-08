@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Input from './Input'
 
 function AddTask({ onTaskAdd }) {
   const [title, setTitle] = useState('')
@@ -18,17 +19,15 @@ function AddTask({ onTaskAdd }) {
     <form
       onSubmit={handleAdd}
       className="flex flex-col space-y-4 rounded-md bg-slate-200 p-6 shadow">
-      <input
+      <Input
         type="text"
         placeholder="Digite o título da tarefa"
-        className="rounded-md border border-slate-300 px-4 py-2 outline-slate-400"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <input
+      <Input
         type="text"
         placeholder="Digite a descrição da tarefa"
-        className="rounded-md border border-slate-300 px-4 py-2 outline-slate-400"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
