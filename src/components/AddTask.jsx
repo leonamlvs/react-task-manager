@@ -10,7 +10,7 @@ function AddTask({ onTaskAdd }) {
     if (!title.trim() || !description.trim()) {
       return alert('Both fields are required')
     }
-    onTaskAdd(title, description)
+    onTaskAdd(title.trim(), description.trim())
     setTitle('')
     setDescription('')
   }
@@ -24,12 +24,14 @@ function AddTask({ onTaskAdd }) {
         placeholder="Task title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        aria-label="Task title"
       />
       <Input
         type="text"
         placeholder="Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
+        aria-label="Description"
       />
       <button className="rounded-md bg-slate-500 px-4 py-2 font-medium text-white">
         Add Task

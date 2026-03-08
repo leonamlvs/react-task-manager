@@ -28,6 +28,8 @@ function Tasks({ tasks, onTaskClick, onTaskDelete }) {
         <li key={task.id} className="flex items-center gap-2">
           <button
             onClick={() => onTaskClick(task.id)}
+            aria-label={task.isCompleted ? 'Mark as undone' : 'Mark as done'}
+            title={task.isCompleted ? 'Mark as undone' : 'Mark as done'}
             className={`flex w-full min-w-0 items-center gap-2 rounded-md bg-slate-400 p-2 text-left text-white ${
               task.isCompleted ? 'line-through' : ''
             }`}>
@@ -38,10 +40,16 @@ function Tasks({ tasks, onTaskClick, onTaskDelete }) {
             )}
             <span>{task.title}</span>
           </button>
-          <Button onClick={() => handleTaskDetailsClick(task)}>
+          <Button
+            onClick={() => handleTaskDetailsClick(task)}
+            aria-label="See task details"
+            title="See task details">
             <ChevronRightIcon />
           </Button>
-          <Button onClick={() => onTaskDelete(task.id)}>
+          <Button
+            onClick={() => onTaskDelete(task.id)}
+            aria-label="Delete task"
+            title="Delete task">
             <TrashIcon />
           </Button>
         </li>

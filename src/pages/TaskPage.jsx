@@ -14,6 +14,8 @@ function TaskPage() {
         <div className="flex justify-center relative">
           <button
             onClick={() => navigate(-1)}
+            aria-label="Go back"
+            title="Go back"
             className="absolute left-0 top-0 bottom-0 text-slate-100">
             <ChevronLeftIcon />
           </button>
