@@ -43,9 +43,9 @@ A simple task management application built with **React**, **Tailwind CSS**, and
 
 3. Install dependencies:
 
-```bash
-  npm install
-```
+   ```bash
+   npm install
+   ```
 
 ### Running the Project
 
@@ -59,7 +59,9 @@ The application will be available at `http://localhost:5173`.
 
 ## 🤝 Let's Connect!
 
-This project was built as part of my learning journey into full-stack development. Feel free to connect and follow my work.
+This project was built as part of my learning journey into full-stack development.
+
+Feel free to connect and follow my work:
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/leonamlvs)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/leonamlvs)
