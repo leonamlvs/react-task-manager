@@ -1,18 +1,21 @@
-import { useState } from 'react';
-import Tasks from './components/Tasks';
+import { useState } from 'react'
+import AddTask from './components/AddTask'
+import Tasks from './components/Tasks'
 
 function App() {
   const [tasks, setTasks] = useState([
     {
       id: 1,
       title: 'Estudar programação',
-      description: 'Estudar programação para me tornar um desenvolvedor full stack.',
+      description:
+        'Estudar programação para me tornar um desenvolvedor full stack.',
       isCompleted: false
     },
     {
       id: 2,
       title: 'Fazer exercícios físicos',
-      description: 'Fazer exercícios físicos para manter a saúde e o bem-estar.',
+      description:
+        'Fazer exercícios físicos para manter a saúde e o bem-estar.',
       isCompleted: false
     },
     {
@@ -25,30 +28,43 @@ function App() {
 
   function onTaskClick(taskId) {
     const newTasks = tasks.map((task) => {
-
       if (task.id === taskId) {
-        return { ...task, isCompleted: !task.isCompleted };
+        return { ...task, isCompleted: !task.isCompleted }
       }
 
-      return task;
-    });
+      return task
+    })
 
-    setTasks(newTasks);
-
+    setTasks(newTasks)
   }
 
   function onTaskDelete(taskId) {
-    const newTasks = tasks.filter((task) => task.id !== taskId);
-    setTasks(newTasks);
+    const newTasks = tasks.filter((task) => task.id !== taskId)
+    setTasks(newTasks)
+  }
+
+  function onTaskAdd(title, description) {
+    const newTask = {
+      id: Date.now(),
+      title,
+      description,
+      isCompleted: false
+    }
+    setTasks([...tasks, newTask])
   }
 
   return (
-    <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
-      <div className="w-[500px]">
-        <h1 className="text-3xl text-slate-100 font-bold text-center">
+    <div className="flex h-screen w-screen justify-center bg-slate-500 p-6">
+      <div className="w-[500px] space-y-4">
+        <h1 className="text-center text-3xl font-bold text-slate-100">
           Gerenciador de Tarefas
         </h1>
-        <Tasks tasks={tasks} onTaskClick={onTaskClick} onTaskDelete={onTaskDelete} />
+        <AddTask onTaskAdd={onTaskAdd} />
+        <Tasks
+          tasks={tasks}
+          onTaskClick={onTaskClick}
+          onTaskDelete={onTaskDelete}
+        />
       </div>
     </div>
   )
