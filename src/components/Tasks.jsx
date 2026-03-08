@@ -38,7 +38,7 @@ function Tasks({ tasks, onTaskClick, onTaskDelete }) {
             ) : (
               <SquareIcon className="shrink-0" />
             )}
-            <span>{task.title}</span>
+            <span className="break-all">{task.title}</span>
           </button>
           <Button
             onClick={() => handleTaskDetailsClick(task)}
