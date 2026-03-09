@@ -22,11 +22,11 @@ A simple task management application built with **React**, **Tailwind CSS**, and
 
 ## 🚀 Getting Started
 
-Choose your preferred way to explore the project:
+Choose your preferred way to explore the project.
 
 ### 🌐 Live Demo
 
-Experience the application in real-time without any installation.
+Experience the application in real-time without any installation:
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://react-task-manager-sandy-gamma.vercel.app/)
 
