@@ -2,7 +2,7 @@
 
 A simple task management application built with **React**, **Tailwind CSS**, and **React Router**. I created this project to practice the basics of building a React app, such as handling state, using basic routing, and saving data to `localStorage`.
 
-## 🚀 Features
+## ✨ Features
 
 - **Task CRUD Operations:** Add, view, and delete tasks.
 - **Task Completion:** Toggle task status with visual feedback (line-through styling).
@@ -20,14 +20,28 @@ A simple task management application built with **React**, **Tailwind CSS**, and
 - **Lucide React:** For a consistent and professional icon set.
 - **Vite:** As the build tool for a fast and optimized development environment.
 
-## 📦 How to Run
+## 🚀 Getting Started
 
-### Prerequisites
+Choose your preferred way to explore the project:
+
+### 🌐 Live Demo
+
+Experience the application in real-time without any installation.
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://react-task-manager-sandy-gamma.vercel.app/)
+
+---
+
+### 💻 Local Development
+
+To dive into the code and run it on your machine, follow these steps:
+
+#### Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18 or higher recommended)
 - [npm](https://www.npmjs.com/)
 
-### Installation
+#### Installation
 
 1. Clone the repository:
 
@@ -47,7 +61,7 @@ A simple task management application built with **React**, **Tailwind CSS**, and
    npm install
    ```
 
-### Running the Project
+#### Running the Project
 
 To start the development server:
 
