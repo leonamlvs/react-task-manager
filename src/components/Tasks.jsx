@@ -11,16 +11,13 @@ function Tasks({ tasks, onTaskClick, onTaskDelete }) {
   const navigate = useNavigate()
 
   function handleTaskDetailsClick(task) {
-    const query = new URLSearchParams()
-    query.set('title', task.title)
-    query.set('description', task.description)
-    navigate(`/tasks?${query.toString()}`)
+    navigate(`/tasks`, { state: { task } })
   }
 
   return (
     <ul className="space-y-4 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-2xl transition-all duration-500">
       {tasks.length === 0 && (
-        <p className="text-center text-white/30 py-4 font-medium">
+        <p className="py-4 text-center font-medium text-white/30">
           Your list is empty. Add a task above to get started.
         </p>
       )}
@@ -45,15 +42,15 @@ function Tasks({ tasks, onTaskClick, onTaskDelete }) {
           <div className="flex shrink-0 items-center gap-2 pr-2">
             <Button
               onClick={() => handleTaskDetailsClick(task)}
-              aria-label="See task details"
-              title="See task details">
+              aria-label="See details"
+              title="See details">
               <ChevronRightIcon size={18} />
             </Button>
             <Button
               onClick={() => onTaskDelete(task.id)}
+              variant="danger"
               aria-label="Delete task"
-              title="Delete task"
-              className="rounded-full bg-red-500/10 p-2 text-red-400 transition-all duration-300 hover:bg-red-500/30 active:scale-90 outline-none">
+              title="Delete task">
               <TrashIcon size={18} />
             </Button>
           </div>
