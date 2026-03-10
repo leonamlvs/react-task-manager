@@ -15,7 +15,7 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
   const [tempTitle, setTempTitle] = useState('')
 
   function handleTaskDetailsClick(task) {
-    navigate(`/tasks`, { state: { task } })
+    navigate(`/tasks/${task.id}`)
   }
 
   function handleTaskTitleClick(task) {
@@ -25,7 +25,7 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
 
   function handleSave(taskId) {
     if (tempTitle.trim()) {
-      onTaskUpdate(taskId, tempTitle)
+      onTaskUpdate(taskId, { title: tempTitle })
     }
     setEditingTaskId(null)
   }
