@@ -16,7 +16,7 @@ function ThemeToggle() {
       {theme === 'dark' ? (
         <Sun size={20} className="text-yellow-400 transition-all" />
       ) : (
-        <Moon size={20} className="text-slate-700 transition-all" />
+        <Moon size={20} className="text-orange-950 transition-all" />
       )}
     </Button>
   )

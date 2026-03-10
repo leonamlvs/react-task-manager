@@ -21,7 +21,7 @@ function AddTask({ onTaskAdd }) {
   return (
     <form
       onSubmit={handleAdd}
-      className="flex flex-col space-y-4 rounded-3xl border border-slate-200 dark:border-white/10 bg-white/40 dark:bg-white/5 p-6 shadow-xl backdrop-blur-2xl transition-all duration-300 hover:border-slate-300 dark:hover:border-white/20">
+      className="flex flex-col space-y-4 rounded-3xl border border-orange-200/50 dark:border-white/10 bg-white/60 dark:bg-white/5 p-6 shadow-xl backdrop-blur-2xl transition-all duration-300 hover:border-orange-300/50 dark:hover:border-white/20">
       <Input
         type="text"
         placeholder={t('addTaskPlaceholder')}

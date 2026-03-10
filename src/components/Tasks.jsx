@@ -41,24 +41,24 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
   }
 
   return (
-    <ul className="space-y-4 rounded-3xl border border-slate-200 dark:border-white/10 bg-white/40 dark:bg-white/5 p-6 shadow-xl backdrop-blur-2xl transition-all duration-300">
+    <ul className="space-y-4 rounded-3xl border border-orange-200/50 dark:border-white/10 bg-white/60 dark:bg-white/5 p-6 shadow-xl backdrop-blur-2xl transition-all duration-300">
       {tasks.length === 0 && (
-        <p className="py-4 text-center font-medium text-slate-400 dark:text-white/30">
+        <p className="py-4 text-center font-medium text-orange-300 dark:text-white/30">
           {t('noTasks')}
         </p>
       )}
       {tasks.map((task) => (
         <li
           key={task.id}
-          className="group flex items-center gap-3 rounded-2xl border border-slate-200 dark:border-white/5 bg-white/20 dark:bg-white/5 p-2 transition-all duration-300 hover:bg-white/40 dark:hover:bg-white/10">
+          className="group flex items-center gap-3 rounded-2xl border border-orange-200/50 dark:border-white/5 bg-white/20 dark:bg-white/5 p-2 transition-all duration-300 hover:bg-white/40 dark:hover:bg-white/10">
           <button
             onClick={() => onTaskClick(task.id)}
             aria-label={task.isCompleted ? 'Mark as undone' : 'Mark as done'}
             title={task.isCompleted ? 'Mark as undone' : 'Mark as done'}
-            className={`flex shrink-0 items-center justify-center rounded-xl p-2 transition-all duration-300 outline-none hover:text-blue-500 dark:hover:text-blue-400 ${
+            className={`flex shrink-0 items-center justify-center rounded-xl p-2 transition-all duration-300 outline-none hover:text-orange-500 dark:hover:text-blue-400 ${
               task.isCompleted
-                ? 'text-slate-400 dark:text-white/30'
-                : 'text-slate-600 dark:text-white/60'
+                ? 'text-orange-300 dark:text-white/30'
+                : 'text-orange-700 dark:text-white/60'
             }`}>
             {task.isCompleted ? (
               <SquareCheckIcon className="shrink-0" />
@@ -75,15 +75,15 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
                 onChange={(e) => setTempTitle(e.target.value)}
                 onBlur={() => handleSave(task.id)}
                 onKeyDown={(e) => handleKeyDown(e, task.id)}
-                className="w-full !rounded-xl !bg-slate-300/50 dark:!bg-white/10 !px-2 !py-1 text-sm font-medium"
+                className="w-full !rounded-xl !bg-orange-100/50 dark:!bg-white/10 !px-2 !py-1 text-sm font-medium"
               />
             ) : (
               <div
                 onClick={() => handleTaskTitleClick(task)}
                 className={`cursor-pointer truncate rounded-xl p-2 font-medium transition-all duration-300 hover:bg-white/30 dark:hover:bg-white/5 ${
                   task.isCompleted
-                    ? 'text-slate-400 dark:text-white/30'
-                    : 'text-slate-800 dark:text-white'
+                    ? 'text-orange-300 dark:text-white/30'
+                    : 'text-orange-900 dark:text-white'
                 }`}
                 title="Click to edit">
                 {task.title}
