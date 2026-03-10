@@ -4,14 +4,38 @@ import {
   SquareIcon,
   TrashIcon
 } from 'lucide-react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from './Button'
+import Input from './Input'
 
-function Tasks({ tasks, onTaskClick, onTaskDelete }) {
+function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
   const navigate = useNavigate()
+  const [editingTaskId, setEditingTaskId] = useState(null)
+  const [tempTitle, setTempTitle] = useState('')
 
   function handleTaskDetailsClick(task) {
     navigate(`/tasks`, { state: { task } })
+  }
+
+  function handleTaskTitleClick(task) {
+    setEditingTaskId(task.id)
+    setTempTitle(task.title)
+  }
+
+  function handleSave(taskId) {
+    if (tempTitle.trim()) {
+      onTaskUpdate(taskId, tempTitle)
+    }
+    setEditingTaskId(null)
+  }
+
+  function handleKeyDown(e, taskId) {
+    if (e.key === 'Enter') {
+      handleSave(taskId)
+    } else if (e.key === 'Escape') {
+      setEditingTaskId(null)
+    }
   }
 
   return (
@@ -29,16 +53,38 @@ function Tasks({ tasks, onTaskClick, onTaskDelete }) {
             onClick={() => onTaskClick(task.id)}
             aria-label={task.isCompleted ? 'Mark as undone' : 'Mark as done'}
             title={task.isCompleted ? 'Mark as undone' : 'Mark as done'}
-            className={`flex w-full min-w-0 items-center gap-3 rounded-xl p-2 transition-all duration-300 ${
-              task.isCompleted ? 'text-white/30' : 'text-white'
-            } text-left outline-none`}>
+            className={`flex shrink-0 items-center justify-center rounded-xl p-2 transition-all duration-300 outline-none hover:text-blue-400 ${
+              task.isCompleted ? 'text-white/30' : 'text-white/60'
+            }`}>
             {task.isCompleted ? (
-              <SquareCheckIcon className="shrink-0 text-white/40" />
+              <SquareCheckIcon className="shrink-0" />
             ) : (
-              <SquareIcon className="shrink-0 group-hover:text-blue-300" />
+              <SquareIcon className="shrink-0" />
             )}
-            <span className="truncate font-medium">{task.title}</span>
           </button>
+
+          <div className="flex-1 overflow-hidden">
+            {editingTaskId === task.id ? (
+              <Input
+                autoFocus
+                value={tempTitle}
+                onChange={(e) => setTempTitle(e.target.value)}
+                onBlur={() => handleSave(task.id)}
+                onKeyDown={(e) => handleKeyDown(e, task.id)}
+                className="w-full !rounded-xl !bg-white/10 !px-2 !py-1 text-sm font-medium"
+              />
+            ) : (
+              <div
+                onClick={() => handleTaskTitleClick(task)}
+                className={`cursor-pointer truncate rounded-xl p-2 font-medium transition-all duration-300 hover:bg-white/5 ${
+                  task.isCompleted ? 'text-white/30' : 'text-white'
+                }`}
+                title="Click to edit">
+                {task.title}
+              </div>
+            )}
+          </div>
+
           <div className="flex shrink-0 items-center gap-2 pr-2">
             <Button
               onClick={() => handleTaskDetailsClick(task)}
