@@ -2,7 +2,7 @@ import AddTask from './components/AddTask'
 import Layout from './components/Layout'
 import Tasks from './components/Tasks'
 import Title from './components/Title'
-import { useTasks } from './hooks/useTasks'
+import { useTasks } from './hooks/useTasks.jsx'
 
 function App() {
   const { tasks, onTaskAdd, onTaskDelete, onTaskClick, onTaskUpdate } =

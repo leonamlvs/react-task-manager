@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
-export function useTasks() {
+const TasksContext = createContext()
+
+export function TasksProvider({ children }) {
   const [tasks, setTasks] = useState(
     JSON.parse(localStorage.getItem('tasks')) || []
   )
@@ -34,21 +36,34 @@ export function useTasks() {
     setTasks([...tasks, newTask])
   }
 
-  function onTaskUpdate(taskId, updatedTitle) {
+  function onTaskUpdate(taskId, updates) {
     const newTasks = tasks.map((task) => {
       if (task.id === taskId) {
-        return { ...task, title: updatedTitle }
+        return { ...task, ...updates }
       }
       return task
     })
     setTasks(newTasks)
   }
 
-  return {
-    tasks,
-    onTaskAdd,
-    onTaskDelete,
-    onTaskClick,
-    onTaskUpdate
+  return (
+    <TasksContext.Provider
+      value={{
+        tasks,
+        onTaskAdd,
+        onTaskDelete,
+        onTaskClick,
+        onTaskUpdate
+      }}>
+      {children}
+    </TasksContext.Provider>
+  )
+}
+
+export function useTasks() {
+  const context = useContext(TasksContext)
+  if (!context) {
+    throw new Error('useTasks must be used within a TasksProvider')
   }
+  return context
 }
