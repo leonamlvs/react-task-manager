@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Button from './Button'
 import Input from './Input'
 
 function AddTask({ onTaskAdd }) {
@@ -33,10 +34,9 @@ function AddTask({ onTaskAdd }) {
         onChange={(e) => setDescription(e.target.value)}
         aria-label="Description"
       />
-      <button className="group relative flex items-center justify-center overflow-hidden rounded-full bg-white/10 px-4 py-3 font-semibold text-white transition-all duration-300 hover:bg-white/20 active:scale-95 outline-none focus:ring-2 focus:ring-white/20">
-        <span className="relative z-10">Add Task</span>
-        <div className="absolute inset-0 translate-y-full bg-gradient-to-t from-white/10 to-transparent transition-transform duration-500 group-hover:translate-y-0" />
-      </button>
+      <Button variant="primary" type="submit">
+        Add Task
+      </Button>
     </form>
   )
 }
