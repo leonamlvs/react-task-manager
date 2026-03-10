@@ -1,7 +1,12 @@
-function Button(props) {
+function Button({ children, className = '', ...props }) {
   return (
-    <button {...props} className="rounded-md bg-slate-400 p-2 text-white">
-      {props.children}
+    <button
+      {...props}
+      className={
+        className ||
+        'rounded-full bg-white/10 p-2 text-white transition-all duration-300 hover:bg-white/20 active:scale-90 outline-none focus:ring-2 focus:ring-white/20'
+      }>
+      {children}
     </button>
   )
 }

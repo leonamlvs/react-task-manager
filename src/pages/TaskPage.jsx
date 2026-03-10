@@ -9,24 +9,43 @@ function TaskPage() {
   const description = searchParams.get('description')
 
   return (
-    <div className="flex h-screen w-screen justify-center bg-slate-500 p-6">
-      <div className="w-[500px] space-y-4">
-        <div className="flex justify-center relative">
+    <div className="relative flex h-screen w-screen justify-center overflow-hidden  bg-slate-900  p-6">
+      <div
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+        aria-hidden="true">
+        <div
+          className="animate-glow absolute left-[5%] top-[10%] h-[500px] w-[500px] 
+          rounded-full bg-blue-600/40 blur-[100px] mix-blend-plus-lighter [animation-delay:0s]"
+        />
+        <div
+          className="animate-glow absolute right-[10%] top-[20%] h-[600px] w-[600px] 
+          rounded-full bg-purple-600/40 blur-[120px] mix-blend-plus-lighter [animation-delay:-5s]"
+        />
+        <div
+          className="animate-glow absolute bottom-[10%] left-[20%] h-[550px] w-[550px] 
+          rounded-full bg-red-600/40 blur-[130px] mix-blend-plus-lighter [animation-delay:-10s]"
+        />
+      </div>
+
+      <div className="relative z-10 w-[500px] space-y-4">
+        <header className="relative flex items-center justify-center py-2">
           <button
             onClick={() => navigate(-1)}
             aria-label="Go back"
-            title="Go back"
-            className="absolute left-0 top-0 bottom-0 text-slate-100">
-            <ChevronLeftIcon />
+            className="absolute left-0 rounded-full bg-white/5 p-2 text-white border border-white/10 transition-all hover:bg-white/10 active:scale-90 outline-none focus:ring-2 focus:ring-white/20">
+            <ChevronLeftIcon size={20} />
           </button>
           <Title>Task Details</Title>
-        </div>
+        </header>
 
-        <div className="bg-slate-200 p-4 rounded-md">
-          <h2 className="text-xl text-slate-600 font-bold break-all">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-2xl transition-all duration-500 hover:border-white/20">
+          <h2 className="mb-4 text-2xl font-bold text-white break-all tracking-tight">
             {title}
           </h2>
-          <p className="text-slate-600 break-all">{description}</p>
+          <div className="h-px w-full bg-gradient-to-r from-white/20 to-transparent mb-6" />
+          <p className="text-white/70 leading-relaxed break-all font-medium">
+            {description}
+          </p>
         </div>
       </div>
     </div>

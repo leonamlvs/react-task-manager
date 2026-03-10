@@ -18,40 +18,45 @@ function Tasks({ tasks, onTaskClick, onTaskDelete }) {
   }
 
   return (
-    <ul className="space-y-4 rounded-md bg-slate-200 p-6 shadow">
+    <ul className="space-y-4 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-2xl transition-all duration-500">
       {tasks.length === 0 && (
-        <p className="text-center text-slate-500">
-          No tasks found. Add one above!
+        <p className="text-center text-white/30 py-4 font-medium">
+          Your list is empty. Add a task above to get started.
         </p>
       )}
       {tasks.map((task) => (
-        <li key={task.id} className="flex items-center gap-2">
+        <li
+          key={task.id}
+          className="group flex items-center gap-3 rounded-2xl border border-white/5 bg-white/5 p-2 transition-all duration-300 hover:bg-white/10">
           <button
             onClick={() => onTaskClick(task.id)}
             aria-label={task.isCompleted ? 'Mark as undone' : 'Mark as done'}
             title={task.isCompleted ? 'Mark as undone' : 'Mark as done'}
-            className={`flex w-full min-w-0 items-center gap-2 rounded-md bg-slate-400 p-2 text-left text-white ${
-              task.isCompleted ? 'line-through' : ''
-            }`}>
+            className={`flex w-full min-w-0 items-center gap-3 rounded-xl p-2 transition-all duration-300 ${
+              task.isCompleted ? 'text-white/30' : 'text-white'
+            } text-left outline-none`}>
             {task.isCompleted ? (
-              <SquareCheckIcon className="shrink-0" />
+              <SquareCheckIcon className="shrink-0 text-white/40" />
             ) : (
-              <SquareIcon className="shrink-0" />
+              <SquareIcon className="shrink-0 group-hover:text-blue-300" />
             )}
-            <span className="break-all">{task.title}</span>
+            <span className="truncate font-medium">{task.title}</span>
           </button>
-          <Button
-            onClick={() => handleTaskDetailsClick(task)}
-            aria-label="See task details"
-            title="See task details">
-            <ChevronRightIcon />
-          </Button>
-          <Button
-            onClick={() => onTaskDelete(task.id)}
-            aria-label="Delete task"
-            title="Delete task">
-            <TrashIcon />
-          </Button>
+          <div className="flex shrink-0 items-center gap-2 pr-2">
+            <Button
+              onClick={() => handleTaskDetailsClick(task)}
+              aria-label="See task details"
+              title="See task details">
+              <ChevronRightIcon size={18} />
+            </Button>
+            <Button
+              onClick={() => onTaskDelete(task.id)}
+              aria-label="Delete task"
+              title="Delete task"
+              className="rounded-full bg-red-500/10 p-2 text-red-400 transition-all duration-300 hover:bg-red-500/30 active:scale-90 outline-none">
+              <TrashIcon size={18} />
+            </Button>
+          </div>
         </li>
       ))}
     </ul>
