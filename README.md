@@ -5,19 +5,19 @@ A simple task management application built with **React** and **Tailwind CSS**. 
 ## ✨ Features
 
 - **Task CRUD Operations:** Create, view, update, and delete tasks.
-- **Global State Management:** Uses the React Context API and custom hooks (`useTasks`, `useTheme`) for cleaner and more scalable data flow.
-- **Internationalization (i18n):** Supports multiple languages (English and Portuguese) using `react-i18next` and automatic detection.
+- **Global State Management:** Uses the **React Context API** and custom hooks (`useTasks`, `useTheme`) for cleaner and more scalable data flow.
+- **Internationalization (i18n):** Supports multiple languages (**English** and **Portuguese**) using `react-i18next` and automatic detection.
 - **Dark & Light Modes:** Includes a dynamic theme toggle with persistent storage in `localStorage`.
 - **Dynamic Routing:** Enables seamless navigation between the main dashboard and task details using `react-router-dom` and URL parameters.
-- **Responsive Design:** Features a mobile-first layout built with Tailwind CSS utility classes.
+- **Responsive Design:** Features a mobile-first layout built with **Tailwind CSS** utility classes.
 - **Modern UI Utilities:** Manages dynamic classes efficiently using `clsx` and `tailwind-merge`.
 
 ## 🛠️ Technologies Used
 
-- **React:** Functional components and Hooks (`useState`, `useEffect`, `useContext`), and Custom Hooks.
+- **React:** Functional components and **hooks** (`useState`, `useEffect`, `useContext`), and **custom hooks**.
 - **i18next:** Managing translations and localization logic.
 - **React Router:** For seamless navigation and dynamic routing.
-- **Tailwind CSS:** Utility-first styling, light and dark mode, and responsive design.
+- **Tailwind CSS:** Utility-first styling and responsive design.
 - **Lucide React:** For a consistent and professional icon set.
 - **Vite:** As the build tool for a fast and optimized development environment.
 
