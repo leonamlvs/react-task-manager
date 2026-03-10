@@ -1,12 +1,14 @@
 import { GithubIcon, LinkedinIcon } from 'lucide-react'
 import { cn } from '../utils/cn'
 import Button from './Button'
+import LanguageToggle from './LanguageToggle'
+import ThemeToggle from './ThemeToggle'
 
 function Layout({ children, className = '' }) {
   return (
     <div
       className={cn(
-        'relative flex min-h-screen w-screen justify-center overflow-x-hidden bg-slate-900 p-6',
+        'relative flex min-h-screen w-screen justify-center overflow-x-hidden bg-slate-50 transition-colors duration-300 dark:bg-slate-900 p-6',
         className
       )}>
       {/* Background Glows */}
@@ -15,16 +17,22 @@ function Layout({ children, className = '' }) {
         aria-hidden="true">
         <div
           className="animate-glow absolute left-[5%] top-[10%] h-[500px] w-[500px]
-          rounded-full bg-blue-600/60 blur-[100px] mix-blend-plus-lighter [animation-delay:0s]"
+          rounded-full bg-blue-600/30 dark:bg-blue-600/60 blur-[100px] mix-blend-multiply dark:mix-blend-plus-lighter [animation-delay:0s]"
         />
         <div
           className="animate-glow absolute right-[10%] top-[20%] h-[600px] w-[600px]
-          rounded-full bg-purple-600/60 blur-[120px] mix-blend-plus-lighter [animation-delay:-5s]"
+          rounded-full bg-purple-600/30 dark:bg-purple-600/60 blur-[120px] mix-blend-multiply dark:mix-blend-plus-lighter [animation-delay:-5s]"
         />
         <div
           className="animate-glow absolute bottom-[10%] left-[20%] h-[550px] w-[550px]
-          rounded-full bg-rose-600/60 blur-[130px] mix-blend-plus-lighter [animation-delay:-10s]"
+          rounded-full bg-rose-600/30 dark:bg-rose-600/60 blur-[130px] mix-blend-multiply dark:mix-blend-plus-lighter [animation-delay:-10s]"
         />
+      </div>
+
+      {/* Settings Buttons (Superior Left) */}
+      <div className="fixed left-6 top-6 z-50 flex gap-2">
+        <ThemeToggle />
+        <LanguageToggle />
       </div>
 
       {/* Social Buttons (Global) */}
