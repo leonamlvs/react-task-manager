@@ -179,7 +179,7 @@ function TaskPage() {
                 className="cursor-pointer break-all font-medium leading-relaxed text-white/70 whitespace-pre-wrap rounded-xl p-1 -m-1 hover:bg-white/5 transition-colors"
                 title="Click to edit description">
                 {task.description || (
-                  <span className="italic opacity-50 font-normal text-sm">
+                  <span className="opacity-50 font-normal text-sm">
                     No description provided. Click to add one.
                   </span>
                 )}

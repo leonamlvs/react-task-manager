@@ -8,8 +8,8 @@ function AddTask({ onTaskAdd }) {
 
   const handleAdd = (e) => {
     e.preventDefault()
-    if (!title.trim() || !description.trim()) {
-      return alert('Both fields are required')
+    if (!title.trim()) {
+      return alert('Title is required')
     }
     onTaskAdd(title.trim(), description.trim())
     setTitle('')
