@@ -11,7 +11,7 @@ function AddTask({ onTaskAdd }) {
   const handleAdd = (e) => {
     e.preventDefault()
     if (!title.trim()) {
-      return
+      return alert(t('addTaskValidation'))
     }
     onTaskAdd(title.trim(), description.trim())
     setTitle('')
