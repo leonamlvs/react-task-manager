@@ -34,10 +34,21 @@ export function useTasks() {
     setTasks([...tasks, newTask])
   }
 
+  function onTaskUpdate(taskId, updatedTitle) {
+    const newTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return { ...task, title: updatedTitle }
+      }
+      return task
+    })
+    setTasks(newTasks)
+  }
+
   return {
     tasks,
     onTaskAdd,
     onTaskDelete,
-    onTaskClick
+    onTaskClick,
+    onTaskUpdate
   }
 }

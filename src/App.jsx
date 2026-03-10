@@ -5,7 +5,8 @@ import Title from './components/Title'
 import { useTasks } from './hooks/useTasks'
 
 function App() {
-  const { tasks, onTaskAdd, onTaskDelete, onTaskClick } = useTasks()
+  const { tasks, onTaskAdd, onTaskDelete, onTaskClick, onTaskUpdate } =
+    useTasks()
 
   return (
     <Layout>
@@ -15,6 +16,7 @@ function App() {
         tasks={tasks}
         onTaskClick={onTaskClick}
         onTaskDelete={onTaskDelete}
+        onTaskUpdate={onTaskUpdate}
       />
     </Layout>
   )
