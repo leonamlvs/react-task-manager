@@ -8,7 +8,7 @@ function Layout({ children, className = '' }) {
   return (
     <div
       className={cn(
-        'relative flex min-h-screen w-screen justify-center overflow-x-hidden bg-orange-50/20 transition-colors duration-300 dark:bg-slate-900 p-6',
+        'relative flex flex-col min-h-screen w-screen items-center overflow-x-hidden bg-orange-50/20 transition-colors duration-300 dark:bg-slate-900 p-6',
         className
       )}>
       {/* Background Glows */}
@@ -29,40 +29,45 @@ function Layout({ children, className = '' }) {
         />
       </div>
 
-      {/* Settings Buttons (Superior Left) */}
-      <div className="fixed left-6 top-6 z-50 flex gap-2">
-        <ThemeToggle />
-        <LanguageToggle />
-      </div>
+      {/* Header Container (Buttons) */}
+      <div className="relative z-50 flex w-full max-w-[500px] items-center justify-between mb-8">
+        {/* Settings Buttons */}
+        <div className="flex gap-2">
+          <ThemeToggle />
+          <LanguageToggle />
+        </div>
 
-      {/* Social Buttons (Global) */}
-      <div className="fixed right-6 top-6 z-50 flex gap-2">
-        <a
-          href="https://github.com/leonamlvs"
-          target="_blank"
-          rel="noopener noreferrer">
-          <Button
-            variant="secondary"
-            aria-label="GitHub profile"
-            title="GitHub">
-            <GithubIcon size={20} />
-          </Button>
-        </a>
-        <a
-          href="https://linkedin.com/in/leonamlvs"
-          target="_blank"
-          rel="noopener noreferrer">
-          <Button
-            variant="secondary"
-            aria-label="LinkedIn profile"
-            title="LinkedIn">
-            <LinkedinIcon size={20} />
-          </Button>
-        </a>
+        {/* Social Buttons */}
+        <div className="flex gap-2">
+          <a
+            href="https://github.com/leonamlvs"
+            target="_blank"
+            rel="noopener noreferrer">
+            <Button
+              variant="secondary"
+              aria-label="GitHub profile"
+              title="GitHub">
+              <GithubIcon size={20} />
+            </Button>
+          </a>
+          <a
+            href="https://linkedin.com/in/leonamlvs"
+            target="_blank"
+            rel="noopener noreferrer">
+            <Button
+              variant="secondary"
+              aria-label="LinkedIn profile"
+              title="LinkedIn">
+              <LinkedinIcon size={20} />
+            </Button>
+          </a>
+        </div>
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 w-[500px] space-y-4">{children}</div>
+      <div className="relative z-10 w-full max-w-[500px] space-y-4">
+        {children}
+      </div>
     </div>
   )
 }
