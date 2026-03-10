@@ -1,14 +1,10 @@
-import {
-  ChevronLeftIcon,
-  XIcon,
-  TrashIcon
-} from 'lucide-react'
-import { useState, useEffect, useRef } from 'react'
+import { ChevronLeftIcon, TrashIcon, XIcon } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Button from '../components/Button'
+import Input from '../components/Input'
 import Layout from '../components/Layout'
 import Title from '../components/Title'
-import Input from '../components/Input'
 import { useTasks } from '../hooks/useTasks.jsx'
 import { cn } from '../utils/cn'
 
@@ -16,14 +12,14 @@ function TaskPage() {
   const { id } = useParams()
   const navigate = useNavigate()
   const { tasks, onTaskUpdate, onTaskDelete } = useTasks()
-  
+
   const task = tasks.find((t) => t.id === id)
 
   // 'title' | 'description' | null
   const [editingField, setEditingField] = useState(null)
   const [tempTitle, setTempTitle] = useState('')
   const [tempDescription, setTempDescription] = useState('')
-  
+
   const isCancelling = useRef(false)
 
   useEffect(() => {
@@ -60,9 +56,9 @@ function TaskPage() {
     }
 
     if (tempTitle.trim()) {
-      onTaskUpdate(task.id, { 
-        title: tempTitle, 
-        description: tempDescription 
+      onTaskUpdate(task.id, {
+        title: tempTitle,
+        description: tempDescription
       })
     } else {
       // Revert title if empty
@@ -113,6 +109,7 @@ function TaskPage() {
         <div className="absolute right-0 flex gap-2">
           {editingField ? (
             <Button
+              key="cancel-edit"
               onMouseDown={(e) => {
                 // Prevent onBlur from firing before we can set isCancelling
                 e.preventDefault()
@@ -125,6 +122,7 @@ function TaskPage() {
             </Button>
           ) : (
             <Button
+              key="delete-task"
               onClick={handleDelete}
               aria-label="Delete task"
               variant="danger"
@@ -150,7 +148,7 @@ function TaskPage() {
                 placeholder="Task title"
               />
             ) : (
-              <h2 
+              <h2
                 onClick={() => setEditingField('title')}
                 className="cursor-pointer break-all text-2xl font-bold tracking-tight text-white rounded-xl p-1 -m-1 hover:bg-white/5 transition-colors"
                 title="Click to edit title">
@@ -171,22 +169,24 @@ function TaskPage() {
                 onBlur={handleSave}
                 onKeyDown={handleKeyDown}
                 className={cn(
-                  'w-full min-h-[150px] rounded-2xl bg-white/10 px-4 py-3 text-white placeholder-white/40 border border-transparent shadow-inner outline-none transition-all duration-500 ease-in-out focus:border-white/30 focus:drop-shadow-[0_0_10px_rgba(255,255,255,0.2)] focus:shadow-[0_0_10px_rgba(255,255,255,0.2)] focus:duration-75 resize-none font-medium leading-relaxed',
+                  'w-full min-h-[150px] rounded-2xl bg-white/10 px-4 py-3 text-white placeholder-white/40 border border-transparent shadow-inner outline-none transition-all duration-500 ease-in-out focus:border-white/30 focus:drop-shadow-[0_0_10px_rgba(255,255,255,0.2)] focus:shadow-[0_0_10px_rgba(255,255,255,0.2)] focus:duration-75 resize-none font-medium leading-relaxed'
                 )}
                 placeholder="Task description (optional)"
               />
             ) : (
-              <p 
+              <p
                 onClick={() => setEditingField('description')}
                 className="cursor-pointer break-all font-medium leading-relaxed text-white/70 whitespace-pre-wrap rounded-xl p-1 -m-1 hover:bg-white/5 transition-colors"
                 title="Click to edit description">
                 {task.description || (
-                  <span className="italic opacity-50 font-normal text-sm">No description provided. Click to add one.</span>
+                  <span className="italic opacity-50 font-normal text-sm">
+                    No description provided. Click to add one.
+                  </span>
                 )}
               </p>
             )}
           </div>
-          
+
           {editingField && (
             <p className="text-xs text-white/30 text-right animate-pulse">
               Press Ctrl+Enter to save, Click outside to auto-save
