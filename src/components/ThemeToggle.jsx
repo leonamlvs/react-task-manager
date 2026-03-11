@@ -14,9 +14,9 @@ function ThemeToggle() {
       title={theme === 'dark' ? t('switchToLight') : t('switchToDark')}
       aria-label={theme === 'dark' ? t('switchToLight') : t('switchToDark')}>
       {theme === 'dark' ? (
-        <Sun size={20} className="text-yellow-400 transition-all" />
+        <Sun size={20} className="text-white transition-all" />
       ) : (
-        <Moon size={20} className="text-orange-950 transition-all" />
+        <Moon size={20} className="text-slate-600 transition-all" />
       )}
     </Button>
   )
