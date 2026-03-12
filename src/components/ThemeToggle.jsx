@@ -11,6 +11,7 @@ function ThemeToggle() {
     <Button
       onClick={toggleTheme}
       variant="secondary"
+      className="w-11"
       title={theme === 'dark' ? t('switchToLight') : t('switchToDark')}
       aria-label={theme === 'dark' ? t('switchToLight') : t('switchToDark')}>
       {theme === 'dark' ? (

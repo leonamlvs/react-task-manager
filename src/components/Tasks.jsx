@@ -102,8 +102,7 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
                 <ChevronRightIcon size={18} />
               </Button>
               <Button
-                variant="ghost"
-                className="text-rose-500 hover:bg-rose-500/10"
+                variant="danger"
                 onClick={() => onTaskDelete(task.id)}
                 aria-label={t('deleteTask')}
                 title={t('deleteTask')}>

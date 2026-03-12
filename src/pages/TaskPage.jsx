@@ -38,8 +38,9 @@ function TaskPage() {
           <Button
             onClick={() => navigate('/')}
             aria-label={t('goBack')}
+            title={t('goBack')}
             variant="secondary"
-            className="absolute left-0 w-11 px-0">
+            className="absolute left-0 top-1/2 -translate-y-1/2 w-11 px-0">
             <ChevronLeftIcon size={20} />
           </Button>
           <Title>{t('notFound')}</Title>
@@ -101,12 +102,13 @@ function TaskPage() {
         <Button
           onClick={() => navigate('/')}
           aria-label={t('goBack')}
+          title={t('goBack')}
           variant="secondary"
           className="absolute left-0 w-11 px-0">
           <ChevronLeftIcon size={20} />
         </Button>
         <Title>{t('taskDetails')}</Title>
-        <div className="absolute right-0 flex gap-2">
+        <div className="absolute right-0 w-11 px-0">
           {editingField ? (
             <Button
               key="cancel-edit"
