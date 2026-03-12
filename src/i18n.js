@@ -57,7 +57,7 @@ const resources = {
       confirmDelete: 'Tem certeza que deseja excluir esta tarefa?',
       editTitle: 'Clique para editar o título',
       editDescription: 'Clique para editar a descrição',
-      noDescription: 'Nenhuma descrição fornecida. Clique para adicionar uma.',
+      noDescription: 'Nenhuma descrição fornecida.\nClique para adicionar uma.',
       pressToSave:
         'Pressione Ctrl+Enter para salvar, clique fora para salvar automaticamente',
       autoSave: 'Clique fora para salvar automaticamente',

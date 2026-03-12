@@ -160,7 +160,7 @@ function TaskPage() {
             ) : (
               <h2
                 onClick={() => setEditingField('title')}
-                className="cursor-pointer break-all text-xl sm:text-2xl font-bold tracking-tight text-text-primary-light dark:text-text-primary-dark rounded-xl p-2 -m-2 hover:bg-white/10 transition-colors"
+                className="cursor-pointer break-words text-xl sm:text-2xl font-bold tracking-tight text-text-primary-light dark:text-text-primary-dark rounded-xl p-2 -m-2 hover:bg-white/10 transition-colors"
                 title={t('editTitle')}>
                 {task.title}
               </h2>
@@ -186,7 +186,7 @@ function TaskPage() {
             ) : (
               <p
                 onClick={() => setEditingField('description')}
-                className="cursor-pointer break-all font-medium leading-relaxed text-text-secondary-light dark:text-text-secondary-dark whitespace-pre-wrap rounded-xl p-2 -m-2 hover:bg-white/10 transition-colors"
+                className="cursor-pointer break-words font-medium leading-relaxed text-text-secondary-light dark:text-text-secondary-dark whitespace-pre-wrap rounded-xl p-2 -m-2 hover:bg-white/10 transition-colors"
                 title={t('editDescription')}>
                 {task.description || (
                   <span className="opacity-50 font-normal text-sm">
