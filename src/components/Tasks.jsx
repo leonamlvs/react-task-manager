@@ -57,10 +57,10 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
               onClick={() => onTaskClick(task.id)}
               aria-label={task.isCompleted ? 'Mark as undone' : 'Mark as done'}
               title={task.isCompleted ? 'Mark as undone' : 'Mark as done'}
-              className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-all duration-300 outline-none hover:scale-110 active:scale-95 ${
+              className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-all duration-300 outline-none active:scale-95 ${
                 task.isCompleted
-                  ? 'text-accent-fuchsia opacity-50'
-                  : 'text-accent-indigo'
+                  ? 'text-fuchsia-300 dark:text-indigo-400 opacity-50 hover:opacity-100 '
+                  : 'text-fuchsia-400 hover:text-fuchsia-300 dark:text-indigo-500 dark:hover:text-indigo-400'
               }`}>
               {task.isCompleted ? (
                 <SquareCheckIcon className="shrink-0" />
@@ -84,7 +84,7 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
                   onClick={() => handleTaskTitleClick(task)}
                   className={`cursor-pointer truncate rounded-xl p-2 font-medium transition-all duration-300 hover:bg-white/10 ${
                     task.isCompleted
-                      ? 'text-text-muted-light dark:text-text-muted-dark line-through'
+                      ? 'text-text-muted-light dark:text-text-muted-dark'
                       : 'text-text-secondary-light dark:text-text-secondary-dark'
                   }`}
                   title="Click to edit">
