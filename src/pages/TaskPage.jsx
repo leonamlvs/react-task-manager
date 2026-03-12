@@ -189,7 +189,7 @@ function TaskPage() {
                 className="cursor-pointer break-all font-medium leading-relaxed text-text-secondary-light dark:text-text-secondary-dark whitespace-pre-wrap rounded-xl p-2 -m-2 hover:bg-white/10 transition-colors"
                 title={t('editDescription')}>
                 {task.description || (
-                  <span className="opacity-50 font-normal text-sm italic">
+                  <span className="opacity-50 font-normal text-sm">
                     {t('noDescription')}
                   </span>
                 )}
