@@ -17,15 +17,15 @@ function Layout({ children, className = '' }) {
         aria-hidden="true">
         <div
           className="animate-glow absolute left-[5%] top-[10%] h-[500px] w-[500px]
-          rounded-full bg-accent-indigo dark:bg-accent-blue blur-[100px] dark:mix-blend-plus-lighter [animation-delay:0s]"
+          rounded-full bg-indigo-500 dark:bg-accent-blue blur-[100px] dark:mix-blend-plus-lighter [animation-delay:0s]"
         />
         <div
           className="animate-glow absolute right-[10%] top-[20%] h-[600px] w-[600px]
-          rounded-full bg-accent-fuchsia dark:bg-accent-purple blur-[120px] dark:mix-blend-plus-lighter [animation-delay:-5s]"
+          rounded-full bg-fuchsia-500 dark:bg-accent-purple blur-[120px] dark:mix-blend-plus-lighter [animation-delay:-5s]"
         />
         <div
           className="animate-glow absolute bottom-[10%] left-[20%] h-[550px] w-[550px]
-          rounded-full bg-accent-indigo dark:bg-accent-purple blur-[130px] dark:mix-blend-plus-lighter [animation-delay:-10s]"
+          rounded-full bg-cyan-500 dark:bg-fuchsia-500 blur-[130px] dark:mix-blend-plus-lighter [animation-delay:-10s]"
         />
       </div>
 
