@@ -30,7 +30,7 @@ function Layout({ children, className = '' }) {
       </div>
 
       {/* Header Container (Buttons) */}
-      <div className="relative z-50 flex w-full max-w-xl lg:max-w-2xl items-center justify-between mb-8">
+      <div className="relative z-50 flex w-full max-w-[500px] items-center justify-between mb-8">
         {/* Settings Buttons */}
         <div className="flex gap-3 sm:gap-4">
           <ThemeToggle />
@@ -67,7 +67,7 @@ function Layout({ children, className = '' }) {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 w-full max-w-xl lg:max-w-2xl space-y-3 sm:space-y-4 lg:space-y-6">
+      <div className="relative z-10 w-full max-w-[500px] space-y-3 sm:space-y-4 lg:space-y-6">
         {children}
       </div>
     </div>
