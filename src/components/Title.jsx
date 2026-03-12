@@ -4,7 +4,7 @@ function Title({ children, className = '' }) {
   return (
     <h1
       className={cn(
-        'text-3xl text-indigo-950 dark:text-slate-100 font-bold text-center transition-colors',
+        'text-2xl sm:text-3xl font-bold text-center text-text-primary-light dark:text-text-primary-dark transition-colors tracking-tight',
         className
       )}>
       {children}

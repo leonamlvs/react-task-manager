@@ -4,7 +4,7 @@ function Input({ className = '', ...props }) {
   return (
     <input
       className={cn(
-        'rounded-full bg-slate-400/40 dark:bg-black/20 px-4 py-2 text-slate-950 dark:text-white placeholder-slate-500 dark:placeholder-white/40 border border-transparent shadow-inner outline-none transition-all duration-300 ease-in-out focus:focus:border-white/30 dark:focus:border-white/30 focus:drop-shadow-[0_0_10px_rgba(255,255,255,0.2)] dark:focus:drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]',
+        'h-11 w-full rounded-2xl bg-surface-glass-light dark:bg-white/5 px-4 text-text-primary-light dark:text-text-primary-dark placeholder-text-muted-light dark:placeholder-text-muted-dark border border-white/40 dark:border-white/10 shadow-inner outline-none transition-all duration-300 ease-in-out focus:border-indigo-400/50 dark:focus:border-blue-400/50 focus:bg-white/40 dark:focus:bg-white/10',
         className
       )}
       {...props}

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate, useParams } from 'react-router-dom'
 import Button from '../components/Button'
+import Card from '../components/Card'
 import Input from '../components/Input'
 import Layout from '../components/Layout'
 import Title from '../components/Title'
@@ -33,19 +34,19 @@ function TaskPage() {
   if (!task) {
     return (
       <Layout>
-        <header className="relative flex items-center justify-center py-2">
+        <header className="relative flex items-center justify-center py-2 mb-4">
           <Button
             onClick={() => navigate('/')}
             aria-label={t('goBack')}
             variant="secondary"
-            className="absolute left-0">
+            className="absolute left-0 w-11 px-0">
             <ChevronLeftIcon size={20} />
           </Button>
           <Title>{t('notFound')}</Title>
         </header>
-        <div className="rounded-3xl border border-white/10 dark:border-white/10 bg-white/60 dark:bg-white/5 p-8 text-center text-fuchsia-500/80 dark:text-white/50">
+        <Card variant="bright" className="text-center text-accent-fuchsia">
           {t('taskNotFound')}
-        </div>
+        </Card>
       </Layout>
     )
   }
@@ -96,12 +97,12 @@ function TaskPage() {
 
   return (
     <Layout>
-      <header className="relative flex items-center justify-center py-2">
+      <header className="relative flex items-center justify-center py-2 mb-4">
         <Button
           onClick={() => navigate('/')}
           aria-label={t('goBack')}
           variant="secondary"
-          className="absolute left-0">
+          className="absolute left-0 w-11 px-0">
           <ChevronLeftIcon size={20} />
         </Button>
         <Title>{t('taskDetails')}</Title>
@@ -115,7 +116,8 @@ function TaskPage() {
               }}
               aria-label={t('cancel')}
               variant="secondary"
-              title={t('cancel')}>
+              title={t('cancel')}
+              className="w-11 px-0">
               <XIcon size={20} />
             </Button>
           ) : (
@@ -124,15 +126,16 @@ function TaskPage() {
               onClick={handleDelete}
               aria-label={t('deleteTask')}
               variant="danger"
-              title={t('deleteTask')}>
+              title={t('deleteTask')}
+              className="w-11 px-0">
               <TrashIcon size={20} />
             </Button>
           )}
         </div>
       </header>
 
-      <div className="rounded-3xl border border-white/40 dark:border-white/10 bg-slate-400/20 dark:bg-white/5 p-8 shadow-xl backdrop-blur-2xl transition-all duration-300">
-        <div className="space-y-4">
+      <Card>
+        <div className="space-y-6">
           {/* Title Section */}
           <div className="group relative">
             {editingField === 'title' ? (
@@ -142,20 +145,20 @@ function TaskPage() {
                 onChange={(e) => setTempTitle(e.target.value)}
                 onBlur={handleSave}
                 onKeyDown={handleKeyDown}
-                className="w-full text-2xl font-bold tracking-tight !rounded-2xl !bg-white/30 dark:!bg-white/10"
+                className="h-auto w-full py-2 text-xl sm:text-2xl font-bold tracking-tight !rounded-2xl !bg-white/10"
                 placeholder={t('addTaskPlaceholder')}
               />
             ) : (
               <h2
                 onClick={() => setEditingField('title')}
-                className="cursor-pointer break-all text-2xl font-bold tracking-tight text-slate-950 dark:text-white rounded-xl p-1 -m-1 hover:bg-slate-400/20 dark:hover:bg-white/5 transition-colors"
+                className="cursor-pointer break-all text-xl sm:text-2xl font-bold tracking-tight text-text-primary-light dark:text-text-primary-dark rounded-xl p-2 -m-2 hover:bg-white/10 transition-colors"
                 title={t('editTitle')}>
                 {task.title}
               </h2>
             )}
           </div>
 
-          <div className="mb-6 h-px w-full bg-gradient-to-r from-slate-500/40 dark:from-white/20 to-transparent" />
+          <div className="h-px w-full bg-gradient-to-r from-accent-indigo/40 dark:from-white/20 to-transparent" />
 
           {/* Description Section */}
           <div className="group relative">
@@ -167,17 +170,17 @@ function TaskPage() {
                 onBlur={handleSave}
                 onKeyDown={handleKeyDown}
                 className={cn(
-                  'w-full min-h-[150px] rounded-2xl bg-slate-200/50 dark:bg-white/10 px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/40 border border-transparent shadow-inner outline-none transition-all duration-300 ease-in-out focus:border-white/30 dark:focus:border-white/30 resize-none font-medium leading-relaxed'
+                  'w-full min-h-[150px] rounded-2xl bg-white/10 px-4 py-3 text-text-secondary-light dark:text-text-secondary-dark placeholder-text-muted-light dark:placeholder-text-muted-dark border border-white/20 shadow-inner outline-none transition-all duration-300 ease-in-out focus:border-indigo-400/50 resize-none font-medium leading-relaxed'
                 )}
                 placeholder={t('addTaskDescriptionPlaceholder')}
               />
             ) : (
               <p
                 onClick={() => setEditingField('description')}
-                className="cursor-pointer break-all font-medium leading-relaxed text-slate-800 dark:text-white/70 whitespace-pre-wrap rounded-xl p-1 -m-1 hover:bg-slate-400/20 dark:hover:bg-white/5 transition-colors"
+                className="cursor-pointer break-all font-medium leading-relaxed text-text-secondary-light dark:text-text-secondary-dark whitespace-pre-wrap rounded-xl p-2 -m-2 hover:bg-white/10 transition-colors"
                 title={t('editDescription')}>
                 {task.description || (
-                  <span className="opacity-50 font-normal text-sm">
+                  <span className="opacity-50 font-normal text-sm italic">
                     {t('noDescription')}
                   </span>
                 )}
@@ -186,12 +189,12 @@ function TaskPage() {
           </div>
 
           {editingField && (
-            <p className="text-xs text-slate-600/90 dark:text-white/30 text-right">
+            <p className="text-xs text-text-muted-light dark:text-text-muted-dark text-right">
               {t('pressToSave')}
             </p>
           )}
         </div>
-      </div>
+      </Card>
     </Layout>
   )
 }

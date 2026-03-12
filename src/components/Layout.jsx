@@ -8,7 +8,7 @@ function Layout({ children, className = '' }) {
   return (
     <div
       className={cn(
-        'relative flex flex-col min-h-screen w-screen items-center overflow-x-hidden bg-slate-200 transition-colors duration-300 dark:bg-slate-900 p-6',
+        'relative flex flex-col min-h-screen w-screen items-center overflow-x-hidden bg-surface-bg-light transition-colors duration-300 dark:bg-surface-bg-dark p-4 sm:p-6 lg:p-8',
         className
       )}>
       {/* Background Glows */}
@@ -17,28 +17,28 @@ function Layout({ children, className = '' }) {
         aria-hidden="true">
         <div
           className="animate-glow absolute left-[5%] top-[10%] h-[500px] w-[500px]
-          rounded-full bg-indigo-400 dark:bg-blue-600/60 blur-[100px] dark:mix-blend-plus-lighter [animation-delay:0s]"
+          rounded-full bg-accent-indigo dark:bg-accent-blue blur-[100px] dark:mix-blend-plus-lighter [animation-delay:0s]"
         />
         <div
           className="animate-glow absolute right-[10%] top-[20%] h-[600px] w-[600px]
-          rounded-full bg-fuchsia-400 dark:bg-purple-600/60 blur-[120px] dark:mix-blend-plus-lighter [animation-delay:-5s]"
+          rounded-full bg-accent-fuchsia dark:bg-accent-purple blur-[120px] dark:mix-blend-plus-lighter [animation-delay:-5s]"
         />
         <div
           className="animate-glow absolute bottom-[10%] left-[20%] h-[550px] w-[550px]
-          rounded-full bg-cyan-400 dark:bg-rose-600/60 blur-[130px] dark:mix-blend-plus-lighter [animation-delay:-10s]"
+          rounded-full bg-accent-indigo dark:bg-accent-purple blur-[130px] dark:mix-blend-plus-lighter [animation-delay:-10s]"
         />
       </div>
 
       {/* Header Container (Buttons) */}
-      <div className="relative z-50 flex w-full max-w-[500px] items-center justify-between mb-8">
+      <div className="relative z-50 flex w-full max-w-xl lg:max-w-2xl items-center justify-between mb-8">
         {/* Settings Buttons */}
-        <div className="flex gap-2">
+        <div className="flex gap-3 sm:gap-4">
           <ThemeToggle />
           <LanguageToggle />
         </div>
 
         {/* Social Buttons */}
-        <div className="flex gap-2">
+        <div className="flex gap-2 sm:gap-3">
           <a
             href="https://github.com/leonamlvs"
             target="_blank"
@@ -46,7 +46,8 @@ function Layout({ children, className = '' }) {
             <Button
               variant="secondary"
               aria-label="GitHub profile"
-              title="GitHub">
+              title="GitHub"
+              className="w-11 px-0">
               <GithubIcon size={20} />
             </Button>
           </a>
@@ -57,7 +58,8 @@ function Layout({ children, className = '' }) {
             <Button
               variant="secondary"
               aria-label="LinkedIn profile"
-              title="LinkedIn">
+              title="LinkedIn"
+              className="w-11 px-0">
               <LinkedinIcon size={20} />
             </Button>
           </a>
@@ -65,7 +67,7 @@ function Layout({ children, className = '' }) {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 w-full max-w-[500px] space-y-4">
+      <div className="relative z-10 w-full max-w-xl lg:max-w-2xl space-y-3 sm:space-y-4 lg:space-y-6">
         {children}
       </div>
     </div>
