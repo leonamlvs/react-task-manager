@@ -27,6 +27,7 @@ const resources = {
       editDescription: 'Click to edit description',
       noDescription: 'No description provided. Click to add one.',
       pressToSave: 'Press Ctrl+Enter to save, Click outside to auto-save',
+      autoSave: 'Click outside to auto-save',
       goBack: 'Go back',
       cancel: 'Cancel',
       markAsDone: 'Mark as done',
@@ -59,6 +60,7 @@ const resources = {
       noDescription: 'Nenhuma descrição fornecida. Clique para adicionar uma.',
       pressToSave:
         'Pressione Ctrl+Enter para salvar, clique fora para salvar automaticamente',
+      autoSave: 'Clique fora para salvar automaticamente',
       goBack: 'Voltar',
       cancel: 'Cancelar',
       markAsDone: 'Marcar como concluída',

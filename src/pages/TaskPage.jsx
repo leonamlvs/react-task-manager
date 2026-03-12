@@ -21,8 +21,13 @@ function TaskPage() {
   const [editingField, setEditingField] = useState(null)
   const [tempTitle, setTempTitle] = useState('')
   const [tempDescription, setTempDescription] = useState('')
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
 
   const isCancelling = useRef(false)
+
+  useEffect(() => {
+    setIsTouchDevice(window.matchMedia('(pointer: coarse)').matches)
+  }, [])
 
   useEffect(() => {
     if (task) {
@@ -45,7 +50,9 @@ function TaskPage() {
           </Button>
           <Title>{t('notFound')}</Title>
         </header>
-        <Card variant="bright" className="text-center text-accent-fuchsia">
+        <Card
+          variant="bright"
+          className="text-center text-text-secondary-light dark:text-text-secondary-dark">
           {t('taskNotFound')}
         </Card>
       </Layout>
@@ -192,7 +199,7 @@ function TaskPage() {
 
           {editingField && (
             <p className="text-xs text-text-muted-light dark:text-text-muted-dark text-right">
-              {t('pressToSave')}
+              {isTouchDevice ? t('autoSave') : t('pressToSave')}
             </p>
           )}
         </div>
