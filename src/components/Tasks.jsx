@@ -82,7 +82,7 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
               ) : (
                 <div
                   onClick={() => handleTaskTitleClick(task)}
-                  className={`cursor-pointer truncate rounded-xl p-2 font-medium transition-all duration-300 hover:bg-white/10 ${
+                  className={`cursor-pointer line-clamp-3 rounded-xl p-2 font-medium transition-all duration-300 hover:bg-white/10 ${
                     task.isCompleted
                       ? 'text-text-muted-light dark:text-text-muted-dark'
                       : 'text-text-secondary-light dark:text-text-secondary-dark'
