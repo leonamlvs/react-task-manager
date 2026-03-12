@@ -59,7 +59,7 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
               title={task.isCompleted ? 'Mark as undone' : 'Mark as done'}
               className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-all duration-300 outline-none active:scale-95 ${
                 task.isCompleted
-                  ? 'text-fuchsia-300 dark:text-indigo-400 opacity-70 dark:opacity-50 hover:opacity-100 '
+                  ? 'text-fuchsia-600 dark:text-indigo-400 opacity-25 dark:opacity-50 hover:text-fuchsia-300 hover:opacity-100'
                   : 'text-fuchsia-400 hover:text-fuchsia-300 dark:text-indigo-500 dark:hover:text-indigo-400'
               }`}>
               {task.isCompleted ? (
