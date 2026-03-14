@@ -2,10 +2,8 @@ import { cn } from '../utils/cn'
 
 function Card({ children, className = '', variant = 'glass' }) {
   const variants = {
-    glass:
-      'bg-surface-glass-light dark:bg-surface-glass-dark border-white/40 dark:border-white/10 backdrop-blur-2xl shadow-xl',
-    bright:
-      'bg-surface-bright-light dark:bg-surface-bright-dark border-white/40 dark:border-white/10'
+    glass: 'glass-full shadow-xl',
+    bright: 'bg-surface-bright-light dark:bg-surface-bright-dark glass-border'
   }
 
   return (

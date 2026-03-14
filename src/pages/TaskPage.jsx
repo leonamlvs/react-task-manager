@@ -167,7 +167,7 @@ function TaskPage() {
             )}
           </div>
 
-          <div className="h-px w-full bg-gradient-to-r from-accent-indigo/40 dark:from-white/20 to-transparent" />
+          <div className="gradient-divider" />
 
           {/* Description Section */}
           <div className="group relative">
@@ -186,7 +186,7 @@ function TaskPage() {
             ) : (
               <p
                 onClick={() => setEditingField('description')}
-                className="cursor-pointer break-words font-medium leading-relaxed text-text-secondary-light dark:text-text-secondary-dark whitespace-pre-wrap rounded-xl p-2 -m-2 hover:bg-white/10 transition-colors"
+                className="cursor-pointer break-words font-medium leading-relaxed text-text-secondary-light dark:text-text-secondary-dark whitespace-pre-wrap editable-toggle"
                 title={t('editDescription')}>
                 {task.description || (
                   <span className="opacity-50 font-normal text-sm">

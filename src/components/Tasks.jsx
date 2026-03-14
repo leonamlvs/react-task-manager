@@ -57,7 +57,7 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
               onClick={() => onTaskClick(task.id)}
               aria-label={task.isCompleted ? 'Mark as undone' : 'Mark as done'}
               title={task.isCompleted ? 'Mark as undone' : 'Mark as done'}
-              className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-all duration-300 outline-none active:scale-95 ${
+              className={`icon-button shrink-0 rounded-xl transition-all duration-300 interactive-press ${
                 task.isCompleted
                   ? 'text-fuchsia-600 dark:text-indigo-400 opacity-25 dark:opacity-50 hover:opacity-100'
                   : 'text-fuchsia-400 hover:text-fuchsia-600 dark:text-indigo-500 dark:hover:text-indigo-400'
@@ -82,7 +82,7 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
               ) : (
                 <div
                   onClick={() => handleTaskTitleClick(task)}
-                  className="cursor-pointer rounded-xl p-2 transition-all duration-300 hover:bg-white/10"
+                  className="cursor-pointer editable-toggle"
                   title="Click to edit">
                   <div
                     className={`line-clamp-3 font-medium ${
