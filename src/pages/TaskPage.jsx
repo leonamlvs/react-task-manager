@@ -186,7 +186,7 @@ function TaskPage() {
             ) : (
               <p
                 onClick={() => setEditingField('description')}
-                className="cursor-pointer break-words font-medium leading-relaxed text-text-secondary-light dark:text-text-secondary-dark whitespace-pre-wrap editable-toggle"
+                className="cursor-pointer break-words font-medium leading-relaxed text-text-secondary-light dark:text-text-secondary-dark whitespace-pre-wrap editable-toggle -m-2"
                 title={t('editDescription')}>
                 {task.description || (
                   <span className="opacity-50 font-normal text-sm">

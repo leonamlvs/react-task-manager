@@ -47,6 +47,6 @@
   }
 
   .editable-toggle {
-    @apply -m-2 rounded-xl p-2 transition-colors hover:bg-white/10;
+    @apply rounded-xl p-2 transition-colors hover:bg-white/10;
   }
 }

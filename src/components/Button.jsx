@@ -8,7 +8,7 @@ const variants = {
   danger:
     'flex h-11 items-center justify-center rounded-full bg-rose-500/10 size-11 text-rose-500 border border-rose-500/20 hover:bg-rose-500/20 dark:hover:bg-rose-500/20 hover:shadow-md transition-all duration-300 interactive-press',
   ghost:
-    'icon-button rounded-full glass-base text-text-secondary-light dark:text-text-secondary-dark interactive-hover hover:shadow-md transition-all duration-300 interactive-press'
+    'icon-button rounded-full bg-surface-glass-light dark:bg-surface-glass-dark text-text-secondary-light dark:text-text-secondary-dark interactive-hover hover:shadow-md transition-all duration-300 interactive-press'
 }
 
 function Button({ children, variant = 'primary', className = '', ...props }) {
