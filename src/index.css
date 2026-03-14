@@ -16,3 +16,37 @@
     @apply text-text-primary-light dark:text-text-primary-dark;
   }
 }
+
+@layer components {
+  .glass-full {
+    @apply border border-white/40 bg-surface-glass-light backdrop-blur-2xl dark:border-white/10 dark:bg-surface-glass-dark;
+  }
+
+  .glass-base {
+    @apply bg-surface-glass-light backdrop-blur-2xl dark:bg-surface-glass-dark;
+  }
+
+  .glass-border {
+    @apply border border-white/40 dark:border-white/10;
+  }
+
+  .gradient-divider {
+    @apply h-px w-full bg-gradient-to-r from-accent-indigo/40 to-transparent dark:from-white/20;
+  }
+
+  .interactive-press {
+    @apply outline-none active:scale-95;
+  }
+
+  .interactive-hover {
+    @apply hover:bg-white/10 dark:hover:bg-white/10;
+  }
+
+  .icon-button {
+    @apply flex h-11 w-11 items-center justify-center;
+  }
+
+  .editable-toggle {
+    @apply -m-2 rounded-xl p-2 transition-colors hover:bg-white/10;
+  }
+}
