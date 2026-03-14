@@ -69,7 +69,7 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
               )}
             </button>
 
-            <div className="flex-1 overflow-hidden">
+            <div className="flex-1 rounded-xl p-1.5 overflow-hidden">
               {editingTaskId === task.id ? (
                 <Input
                   autoFocus
@@ -87,7 +87,7 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
                   <div
                     className={`line-clamp-3 font-medium ${
                       task.isCompleted
-                        ? 'text-text-muted-light dark:text-text-muted-dark'
+                        ? 'text-text-muted-light dark:text-text-muted-dark line-through'
                         : 'text-text-secondary-light dark:text-text-secondary-dark'
                     }`}>
                     {task.title}
