@@ -40,11 +40,6 @@ export default {
           purple: 'rgba(147, 51, 234, 0.6)' // purple-600/60
         }
       },
-      borderRadius: {
-        '3xl': '24px',
-        '2xl': '16px',
-        xl: '12px'
-      },
       fontFamily: {
         sans: ['Nunito', 'sans-serif']
       },
@@ -70,6 +65,12 @@ export default {
             opacity: '0.25'
           }
         }
+      },
+      backgroundImage: {
+        'gradient-button-primary':
+          'linear-gradient(to right, #c084fc, #ec4899, #f43f5e)',
+        'gradient-button-overlay':
+          'linear-gradient(to top, rgba(255, 255, 255, 0.3), transparent)'
       }
     }
   },
