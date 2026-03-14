@@ -69,7 +69,7 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
               )}
             </button>
 
-            <div className="flex-1 rounded-xl p-1.5 overflow-hidden">
+            <div className="flex-1 overflow-hidden">
               {editingTaskId === task.id ? (
                 <Input
                   autoFocus
@@ -77,7 +77,7 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
                   onChange={(e) => setTempTitle(e.target.value)}
                   onBlur={() => handleSave(task.id)}
                   onKeyDown={(e) => handleKeyDown(e, task.id)}
-                  className="h-9 !rounded-xl !bg-white/10 !px-3 text-sm font-medium"
+                  className="h-9 !rounded-xl !bg-white/10 !px-2 text-md font-medium"
                 />
               ) : (
                 <div
