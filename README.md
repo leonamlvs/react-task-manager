@@ -4,7 +4,7 @@ A task management application built with **React** and **Tailwind CSS**, featuri
 
 **[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://react-task-manager-sandy-gamma.vercel.app/)**
 
-![React Task Manager Screenshot](./images/task-manager-showcase.png)
+[![React Task Manager Screenshot](./images/task-manager-showcase.png)](https://react-task-manager-sandy-gamma.vercel.app/)
 
 ---
 
