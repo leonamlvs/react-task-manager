@@ -1,85 +1,79 @@
 # React Task Manager
 
-A simple task management application built with **React** and **Tailwind CSS**. I created this project to practice the basics of building a React app, such as handling state, using basic routing, and saving data to `localStorage`. Eventually, I implemented more advanced concepts like global state management, internationalization, and theme switching.
+A task management application built with **React** and **Tailwind CSS**, featuring Context API, custom hooks, internationalization, and dynamic routing.
 
-## ✨ Features
+**[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://react-task-manager-sandy-gamma.vercel.app/)**
 
-- **Task CRUD Operations:** Create, view, update, and delete tasks.
-- **Global State Management:** Uses the **React Context API** and custom hooks (`useTasks`, `useTheme`) for cleaner and more scalable data flow.
-- **Internationalization (i18n):** Supports multiple languages (**English** and **Portuguese**) using `react-i18next` and automatic detection.
-- **Dark & Light Modes:** Includes a dynamic theme toggle with persistent storage in `localStorage`.
-- **Dynamic Routing:** Enables seamless navigation between the main dashboard and task details using `react-router-dom` and URL parameters.
-- **Responsive Design:** Features a mobile-first layout built with **Tailwind CSS** utility classes.
-- **Modern UI Utilities:** Manages dynamic classes efficiently using `clsx` and `tailwind-merge`.
-
-## 🛠️ Technologies Used
-
-- **React:** Functional components and **hooks** (`useState`, `useEffect`, `useContext`), and **custom hooks**.
-- **i18next:** Managing translations and localization logic.
-- **React Router:** For seamless navigation and dynamic routing.
-- **Tailwind CSS:** Utility-first styling and responsive design.
-- **Lucide React:** For a consistent and professional icon set.
-- **Vite:** As the build tool for a fast and optimized development environment.
-
-## 🚀 Getting Started
-
-Choose your preferred way to explore the project.
-
-### 🌐 Live Demo
-
-Experience the application in real-time without any installation:
-
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://react-task-manager-sandy-gamma.vercel.app/)
+![React Task Manager Screenshot](./images/task-manager-showcase.png)
 
 ---
 
-### 💻 Local Development
+## ⚡ Features
 
-To dive into the code and run it on your machine, follow these steps:
+- **Full CRUD Support:** Create, view, edit, and delete tasks.
+- **Persistent Storage:** Tasks and user preferences (theme/language) are automatically saved to `localStorage`.
+- **Internationalization (i18n):** Full support for **English** & **Portuguese** with automatic browser language detection.
+- **Dark & Light Theme Toggle:** A seamless theme toggle that persists across sessions.
+- **Dynamic Routing:** Seamless navigation between the main dashboard and detailed task views using React Router.
+- **Fully Responsive:** Optimized for mobile, tablet, and desktop screens.
 
-#### Prerequisites
+---
 
-- [Node.js](https://nodejs.org/) (v18 or higher recommended)
-- [npm](https://www.npmjs.com/)
+## 🛠️ Tech Stack
 
-#### Installation
+| Technology       | Purpose                                         |
+| ---------------- | ----------------------------------------------- |
+| **React**        | State management, Custom Hooks, and Context API |
+| **React Router** | Client-side routing and dynamic URL parameters  |
+| **Tailwind CSS** | Utility-first styling and responsive design     |
+| **i18next**      | Multi-language translation management           |
+| **Lucide React** | Consistent, professional icon library           |
+| **Vite**         | Fast build tool and development server          |
 
-1. Clone the repository:
+---
+
+## 🚀 Getting Started
+
+Follow the steps below to explore the project locally:
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) v18 or higher
+- [npm](https://www.npmjs.com/) or your preferred package manager
+
+### Installation & Setup
+
+1. **Clone the repository:**
 
    ```bash
    git clone https://github.com/leonamlvs/react-task-manager.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
    cd react-task-manager
    ```
 
-3. Install dependencies:
+2. **Install dependencies:**
 
    ```bash
    npm install
    ```
 
-#### Running the Project
+3. **Start the development server:**
 
-To start the development server:
+   ```bash
+   npm run dev
+   ```
 
-```bash
-npm run dev
-```
+The application will be available at `http://localhost:5173`
 
-The application will be available at `http://localhost:5173`.
+---
 
-## 🤝 Let's Connect!
+## 🔗 Let's Connect
 
-This project was built as part of my learning journey into full-stack development.
+This project focuses on front-end development as part of my journey into full-stack engineering. If you have any feedback or would like to discuss the implementation details, I'd love to hear from you!
 
-Feel free to connect and follow my work:
+[![LinkedIn](https://img.shields.io/badge/Connect_on_LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/leonamlvs)
+[![GitHub](https://img.shields.io/badge/View_More_Projects-181717?style=flat&logo=github&logoColor=white)](https://github.com/leonamlvs)
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/leonamlvs)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/leonamlvs)
+---
 
 ## 📄 License
 
