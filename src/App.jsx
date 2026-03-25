@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import AddTask from './components/AddTask'
 import Layout from './components/Layout'
@@ -8,7 +9,11 @@ import { useTasks } from './hooks/useTasks.jsx'
 function App() {
   const { tasks, onTaskAdd, onTaskDelete, onTaskClick, onTaskUpdate } =
     useTasks()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+
+  useEffect(() => {
+    document.documentElement.lang = i18n.language
+  }, [i18n.language])
 
   return (
     <Layout>

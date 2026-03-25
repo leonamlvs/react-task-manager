@@ -22,20 +22,30 @@ function AddTask({ onTaskAdd }) {
   return (
     <Card className="hover:border-white/20 dark:hover:border-white/20">
       <form onSubmit={handleAdd} className="flex flex-col gap-4 sm:gap-5">
-        <Input
-          type="text"
-          placeholder={t('addTaskPlaceholder')}
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          aria-label={t('addTaskPlaceholder')}
-        />
-        <Input
-          type="text"
-          placeholder={t('addTaskDescriptionPlaceholder')}
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          aria-label={t('addTaskDescriptionPlaceholder')}
-        />
+        <div>
+          <label htmlFor="task-title" className="sr-only">
+            {t('addTaskPlaceholder')}
+          </label>
+          <Input
+            id="task-title"
+            type="text"
+            placeholder={t('addTaskPlaceholder')}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="task-description" className="sr-only">
+            {t('addTaskDescriptionPlaceholder')}
+          </label>
+          <Input
+            id="task-description"
+            type="text"
+            placeholder={t('addTaskDescriptionPlaceholder')}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
         <Button variant="primary" type="submit">
           {t('addTaskButton')}
         </Button>

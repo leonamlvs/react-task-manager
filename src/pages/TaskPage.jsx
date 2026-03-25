@@ -14,7 +14,11 @@ function TaskPage() {
   const { id } = useParams()
   const navigate = useNavigate()
   const { tasks, onTaskUpdate, onTaskDelete } = useTasks()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+
+  useEffect(() => {
+    document.documentElement.lang = i18n.language
+  }, [i18n.language])
 
   const task = tasks.find((t) => t.id === id)
 
@@ -148,22 +152,31 @@ function TaskPage() {
           {/* Title Section */}
           <div className="group relative">
             {editingField === 'title' ? (
-              <Input
-                autoFocus
-                value={tempTitle}
-                onChange={(e) => setTempTitle(e.target.value)}
-                onBlur={handleSave}
-                onKeyDown={handleKeyDown}
-                className="h-auto w-full py-2 text-xl sm:text-2xl font-bold tracking-tight !rounded-2xl !bg-white/10"
-                placeholder={t('addTaskPlaceholder')}
-              />
+              <>
+                <label htmlFor="edit-title" className="sr-only">
+                  {t('editTitle')}
+                </label>
+                <Input
+                  id="edit-title"
+                  autoFocus
+                  value={tempTitle}
+                  onChange={(e) => setTempTitle(e.target.value)}
+                  onBlur={handleSave}
+                  onKeyDown={handleKeyDown}
+                  className="h-auto w-full p-2 -m-2 text-xl font-bold tracking-tight !rounded-2xl !bg-white/10 sm:text-2xl"
+                  placeholder={t('addTaskPlaceholder')}
+                />
+              </>
             ) : (
-              <h2
+              <button
                 onClick={() => setEditingField('title')}
-                className="cursor-pointer break-words text-xl sm:text-2xl font-bold tracking-tight text-text-primary-light dark:text-text-primary-dark rounded-xl p-2 -m-2 hover:bg-white/10 transition-colors"
-                title={t('editTitle')}>
-                {task.title}
-              </h2>
+                className="w-full rounded-xl p-2 -m-2 text-left transition-colors hover:bg-white/10 focus-visible:ring-inset"
+                title={t('editTitle')}
+                aria-label={`${task.title}, ${t('editTitle')}`}>
+                <h2 className="break-words text-xl font-bold tracking-tight text-text-primary-light dark:text-text-primary-dark sm:text-2xl">
+                  {task.title}
+                </h2>
+              </button>
             )}
           </div>
 
@@ -172,28 +185,37 @@ function TaskPage() {
           {/* Description Section */}
           <div className="group relative">
             {editingField === 'description' ? (
-              <textarea
-                autoFocus
-                value={tempDescription}
-                onChange={(e) => setTempDescription(e.target.value)}
-                onBlur={handleSave}
-                onKeyDown={handleKeyDown}
-                className={cn(
-                  'w-full min-h-[150px] rounded-2xl bg-white/10 px-4 py-3 text-text-secondary-light dark:text-text-secondary-dark placeholder-text-muted-light dark:placeholder-text-muted-dark border border-white/20 shadow-inner outline-none transition-all duration-300 ease-in-out focus:border-indigo-400/50 resize-none font-medium leading-relaxed'
-                )}
-                placeholder={t('addTaskDescriptionPlaceholder')}
-              />
+              <>
+                <label htmlFor="edit-description" className="sr-only">
+                  {t('editDescription')}
+                </label>
+                <textarea
+                  id="edit-description"
+                  autoFocus
+                  value={tempDescription}
+                  onChange={(e) => setTempDescription(e.target.value)}
+                  onBlur={handleSave}
+                  onKeyDown={handleKeyDown}
+                  className={cn(
+                    'min-h-[150px] w-full resize-none rounded-2xl border border-white/20 bg-white/10 p-2 font-medium leading-relaxed text-text-secondary-light shadow-inner outline-none transition-all duration-300 ease-in-out focus:border-indigo-400/50 dark:text-text-secondary-dark placeholder-text-muted-light dark:placeholder-text-muted-dark'
+                  )}
+                  placeholder={t('addTaskDescriptionPlaceholder')}
+                />
+              </>
             ) : (
-              <p
+              <button
                 onClick={() => setEditingField('description')}
-                className="cursor-pointer break-words font-medium leading-relaxed text-text-secondary-light dark:text-text-secondary-dark whitespace-pre-wrap editable-toggle -m-2"
-                title={t('editDescription')}>
-                {task.description || (
-                  <span className="opacity-50 font-normal text-sm">
-                    {t('noDescription')}
-                  </span>
-                )}
-              </p>
+                className="w-full rounded-xl text-left transition-colors hover:bg-white/10 focus-visible:ring-inset"
+                title={t('editDescription')}
+                aria-label={`${task.description || t('noDescription')}, ${t('editDescription')}`}>
+                <p className="break-words font-medium leading-relaxed text-text-secondary-light whitespace-pre-wrap dark:text-text-secondary-dark">
+                  {task.description || (
+                    <span className="text-sm font-normal opacity-50">
+                      {t('noDescription')}
+                    </span>
+                  )}
+                </p>
+              </button>
             )}
           </div>
 

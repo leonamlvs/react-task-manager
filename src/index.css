@@ -15,6 +15,21 @@
   h6 {
     @apply text-text-primary-light dark:text-text-primary-dark;
   }
+
+  :focus,
+  :focus-visible {
+    outline: none;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    @apply ring-2 ring-indigo-500 ring-offset-0 dark:ring-blue-400;
+  }
+
+  input:focus-visible,
+  textarea:focus-visible {
+    @apply ring-0 ring-offset-0;
+  }
 }
 
 @layer components {
@@ -35,7 +50,7 @@
   }
 
   .interactive-press {
-    @apply outline-none active:scale-95;
+    @apply outline-none transition-transform active:scale-95;
   }
 
   .interactive-hover {
@@ -48,5 +63,11 @@
 
   .editable-toggle {
     @apply rounded-xl p-2 transition-colors hover:bg-white/10;
+  }
+
+  /* Visually hide elements but keep them for screen readers */
+  .sr-only {
+    @apply absolute -m-px h-px w-px overflow-hidden whitespace-nowrap border-0 p-0;
+    clip: rect(0, 0, 0, 0);
   }
 }

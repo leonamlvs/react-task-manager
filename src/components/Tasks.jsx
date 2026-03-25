@@ -42,24 +42,28 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
   }
 
   return (
-    <Card className="p-0 sm:p-0 lg:p-0 overflow-hidden">
-      <ul className="flex flex-col gap-3 p-4 sm:gap-4 sm:p-6 lg:gap-6 lg:p-8">
+    <Card className="overflow-hidden p-0 sm:p-0 lg:p-0">
+      <ul
+        className="flex flex-col gap-3 p-4 sm:gap-4 sm:p-6 lg:gap-6 lg:p-8"
+        aria-live="polite">
         {tasks.length === 0 && (
-          <p className="py-4 text-center font-medium text-text-muted-light dark:text-text-muted-dark">
+          <li className="py-4 text-center font-medium text-text-muted-light dark:text-text-muted-dark">
             {t('noTasks')}
-          </p>
+          </li>
         )}
         {tasks.map((task) => (
           <li
             key={task.id}
-            className="group flex items-center gap-3 rounded-2xl border border-white/5 bg-white/10 dark:bg-white/5 p-2 transition-all duration-300 hover:bg-white/20 dark:hover:bg-white/10">
+            className="group flex items-center gap-3 rounded-2xl border border-white/5 bg-white/10 p-2 transition-all duration-300 hover:bg-white/20 dark:bg-white/5 dark:hover:bg-white/10">
             <button
               onClick={() => onTaskClick(task.id)}
-              aria-label={task.isCompleted ? 'Mark as undone' : 'Mark as done'}
-              title={task.isCompleted ? 'Mark as undone' : 'Mark as done'}
+              aria-label={
+                task.isCompleted ? t('markAsUndone') : t('markAsDone')
+              }
+              title={task.isCompleted ? t('markAsUndone') : t('markAsDone')}
               className={`icon-button shrink-0 rounded-xl transition-all duration-300 interactive-press ${
                 task.isCompleted
-                  ? 'text-fuchsia-600 dark:text-indigo-400 opacity-25 dark:opacity-50 hover:opacity-100'
+                  ? 'opacity-25 text-fuchsia-600 hover:opacity-100 dark:text-indigo-400 dark:opacity-50'
                   : 'text-fuchsia-400 hover:text-fuchsia-600 dark:text-indigo-500 dark:hover:text-indigo-400'
               }`}>
               {task.isCompleted ? (
@@ -71,28 +75,35 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
 
             <div className="flex-1 overflow-hidden">
               {editingTaskId === task.id ? (
-                <Input
-                  autoFocus
-                  value={tempTitle}
-                  onChange={(e) => setTempTitle(e.target.value)}
-                  onBlur={() => handleSave(task.id)}
-                  onKeyDown={(e) => handleKeyDown(e, task.id)}
-                  className="h-9 !rounded-xl !bg-white/10 !px-2 text-md font-medium"
-                />
+                <>
+                  <label htmlFor={`edit-task-${task.id}`} className="sr-only">
+                    {t('editTitle')}
+                  </label>
+                  <Input
+                    id={`edit-task-${task.id}`}
+                    autoFocus
+                    value={tempTitle}
+                    onChange={(e) => setTempTitle(e.target.value)}
+                    onBlur={() => handleSave(task.id)}
+                    onKeyDown={(e) => handleKeyDown(e, task.id)}
+                    className="h-9 !rounded-xl !bg-white/10 !px-2 text-md font-medium"
+                  />
+                </>
               ) : (
-                <div
+                <button
                   onClick={() => handleTaskTitleClick(task)}
-                  className="cursor-pointer editable-toggle"
-                  title="Click to edit">
+                  className="editable-toggle w-full text-left focus-visible:ring-inset"
+                  title={t('editTitle')}
+                  aria-label={`${task.title}, ${t('editTitle')}`}>
                   <div
                     className={`line-clamp-3 font-medium ${
                       task.isCompleted
-                        ? 'text-text-muted-light dark:text-text-muted-dark line-through'
+                        ? 'line-through text-text-muted-light dark:text-text-muted-dark'
                         : 'text-text-secondary-light dark:text-text-secondary-dark'
                     }`}>
                     {task.title}
                   </div>
-                </div>
+                </button>
               )}
             </div>
 
@@ -100,14 +111,14 @@ function Tasks({ tasks, onTaskClick, onTaskDelete, onTaskUpdate }) {
               <Button
                 variant="ghost"
                 onClick={() => handleTaskDetailsClick(task)}
-                aria-label={t('taskDetails')}
+                aria-label={`${t('taskDetails')}: ${task.title}`}
                 title={t('taskDetails')}>
                 <ChevronRightIcon size={18} />
               </Button>
               <Button
                 variant="danger"
                 onClick={() => onTaskDelete(task.id)}
-                aria-label={t('deleteTask')}
+                aria-label={`${t('deleteTask')}: ${task.title}`}
                 title={t('deleteTask')}>
                 <TrashIcon size={18} />
               </Button>
