@@ -15,6 +15,7 @@ A task management application built with **React** and **Tailwind CSS**, featuri
 - **Internationalization (i18n):** Full support for **English** & **Portuguese** with automatic browser language detection.
 - **Dark & Light Theme Toggle:** A seamless theme toggle that persists across sessions.
 - **Dynamic Routing:** Seamless navigation between the main dashboard and detailed task views using React Router.
+- **Enhanced Accessibility:** Full keyboard navigation, semantic HTML, skip links, and localized ARIA labels.
 - **Fully Responsive:** Optimized for mobile, tablet, and desktop screens.
 
 ---
