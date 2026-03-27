@@ -6,8 +6,6 @@ A task management application built with **React** and **Tailwind CSS**, featuri
 
 [![React Task Manager Screenshot](./images/task-manager-showcase.png)](https://react-task-manager-sandy-gamma.vercel.app/)
 
----
-
 ## ⚡ Features
 
 - **Full CRUD Support:** Create, view, edit, and delete tasks.
@@ -17,8 +15,6 @@ A task management application built with **React** and **Tailwind CSS**, featuri
 - **Dynamic Routing:** Seamless navigation between the main dashboard and detailed task views using React Router.
 - **Enhanced Accessibility:** Full keyboard navigation, semantic HTML, skip links, and localized ARIA labels.
 - **Fully Responsive:** Optimized for mobile, tablet, and desktop screens.
-
----
 
 ## 🛠️ Tech Stack
 
@@ -30,8 +26,6 @@ A task management application built with **React** and **Tailwind CSS**, featuri
 | **i18next**      | Multi-language translation management           |
 | **Lucide React** | Consistent, professional icon library           |
 | **Vite**         | Fast build tool and development server          |
-
----
 
 ## 🚀 Getting Started
 
@@ -65,16 +59,12 @@ Follow the steps below to explore the project locally:
 
 The application will be available at `http://localhost:5173`
 
----
-
 ## 🔗 Let's Connect
 
 This project focuses on front-end development as part of my journey into full-stack engineering. If you have any feedback or would like to discuss the implementation details, I'd love to hear from you!
 
 [![LinkedIn](https://img.shields.io/badge/Connect_on_LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/leonamlvs)
 [![GitHub](https://img.shields.io/badge/View_More_Projects-181717?style=flat&logo=github&logoColor=white)](https://github.com/leonamlvs)
-
----
 
 ## 📄 License
 
